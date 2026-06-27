@@ -5,7 +5,7 @@
 // ---- DEFAULT CONFIG (overridden by admin settings in localStorage) ----
 const DEFAULT_CONFIG = {
   storeName:    "Só Vendas",
-  whatsapp:     "351912345678",
+  whatsapp:     "351924148088",
   currency:     "€",
   heroHeadline: "Moda que chega <br /><em>com estilo</em>",
   heroSub:      "Escolha as suas peças favoritas — roupas, sapatos e pulseiras de qualidade. Enviamos de Portugal direto para São Tomé. Pedido simples pelo WhatsApp.",
