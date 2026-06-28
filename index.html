@@ -31,6 +31,11 @@
         <a href="#mais-info">Mais Informações</a>
         <a href="#contacto">Contacto</a>
       </nav>
+      <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <button class="cart-toggle" id="cart-toggle" onclick="toggleCart()" aria-label="Ver pedido">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
@@ -115,6 +120,19 @@
       <p class="section-label">Catálogo</p>
       <h2>Os nossos produtos</h2>
     </div>
+    <!-- BARRA DE PESQUISA -->
+    <div class="search-wrap">
+      <div class="search-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="search-input" placeholder="Procurar produto..." oninput="searchProducts(this.value)" autocomplete="off" />
+        <button id="search-clear" class="search-clear" onclick="clearSearch()" style="display:none;" aria-label="Limpar pesquisa">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <span id="search-count" class="search-count" style="display:none;"></span>
+    </div>
+
+    <!-- FILTRO POR CATEGORIA -->
     <div class="filter-bar">
       <button class="filter-btn active" data-cat="all" onclick="filterProducts('all', this)">Todos</button>
       <button class="filter-btn" data-cat="roupa" onclick="filterProducts('roupa', this)">
@@ -126,6 +144,14 @@
       <button class="filter-btn" data-cat="pulseira" onclick="filterProducts('pulseira', this)">
         <span>📿</span> Pulseiras
       </button>
+    </div>
+
+    <!-- FILTRO POR SUBCATEGORIA (aparece para Roupas e Sapatos) -->
+    <div class="subcat-bar" id="subcat-bar" style="display:none;">
+      <button class="subcat-btn active" data-subcat="all"       onclick="filterSubcategory('all', this)">Todos</button>
+      <button class="subcat-btn"        data-subcat="masculino" onclick="filterSubcategory('masculino', this)">♂ Masculino</button>
+      <button class="subcat-btn"        data-subcat="feminino"  onclick="filterSubcategory('feminino', this)">♀ Feminino</button>
+      <button class="subcat-btn"        data-subcat="crianca"   onclick="filterSubcategory('crianca', this)">🧒 Criança</button>
     </div>
     <div class="products-grid" id="products-grid">
       <!-- Rendered by JS -->
@@ -260,6 +286,26 @@
 
 <!-- Toast notification -->
 <div class="toast" id="toast"></div>
+
+<!-- ===== MOBILE NAV ===== -->
+<div class="mobile-nav-overlay" id="mobile-nav-overlay" onclick="closeMobileNav()"></div>
+<aside class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Menu de navegação">
+  <div class="mobile-nav-header">
+    <a href="#" class="logo">
+      <span class="logo-mark">S</span>
+      <span class="logo-text">ó <strong>Vendas</strong></span>
+    </a>
+    <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="Fechar menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav>
+    <a href="#como-funciona" onclick="closeMobileNav()">Como Funciona</a>
+    <a href="#produtos" onclick="closeMobileNav()">Produtos</a>
+    <a href="#mais-info" onclick="closeMobileNav()">Mais Informações</a>
+    <a href="#contacto" onclick="closeMobileNav()">Contacto</a>
+  </nav>
+</aside>
 
 <script src="script.js"></script>
 </body>
