@@ -19,16 +19,20 @@ const DEFAULT_CONFIG = {
 };
 
 const DEFAULT_PRODUCTS = [
-  { id: 1, name: "T-Shirt Básica Premium",    category: "roupa",    price: 15.00, desc: "T-shirt em algodão de alta qualidade. Disponível em várias cores.",             emoji: "👕", available: true  },
-  { id: 2, name: "Vestido Floral Verão",       category: "roupa",    price: 38.00, desc: "Vestido leve com estampado floral, perfeito para o calor de São Tomé.",          emoji: "👗", available: true  },
-  { id: 3, name: "Camisa de Linho Azul",       category: "roupa",    price: 29.00, desc: "Camisa elegante em linho natural. Fresca e confortável.",                        emoji: "👔", available: true  },
-  { id: 4, name: "Calças Chino Bege",          category: "roupa",    price: 34.00, desc: "Calças chino clássicas, versáteis para o dia-a-dia.",                            emoji: "👖", available: true  },
-  { id: 5, name: "Sapatilhas Brancas Classic", category: "sapato",   price: 48.00, desc: "Sapatilhas brancas atemporais. Conforto garantido para uso diário.",             emoji: "👟", available: true  },
-  { id: 6, name: "Sandálias de Verão",         category: "sapato",   price: 32.00, desc: "Sandálias confortáveis e estilosas, ideais para o verão.",                      emoji: "🩴", available: true  },
-  { id: 7, name: "Sapatos de Couro Marrom",    category: "sapato",   price: 65.00, desc: "Sapatos clássicos em couro genuíno. Elegância para qualquer ocasião.",           emoji: "👞", available: true  },
-  { id: 8, name: "Pulseira Dourada Elegante",  category: "pulseira", price: 14.00, desc: "Pulseira fina em aço inoxidável banhada a ouro. Resistente e elegante.",         emoji: "📿", available: true  },
-  { id: 9, name: "Conjunto 3 Pulseiras",       category: "pulseira", price: 20.00, desc: "Conjunto de 3 pulseiras combinadas — ouro, prata e couro.",                     emoji: "💫", available: true  },
-  { id: 10, name: "Pulseira Tecida Colorida",  category: "pulseira", price: 9.00,  desc: "Pulseira artesanal com padrões coloridos. Feita à mão em Portugal.",             emoji: "🌈", available: true  },
+  { id: 1,  name: "T-Shirt Básica Premium",    category: "roupa",    subcategory: "masculino", price: 15.00, desc: "T-shirt em algodão de alta qualidade. Disponível em várias cores.",             emoji: "👕", available: true },
+  { id: 2,  name: "Camisa de Linho Azul",       category: "roupa",    subcategory: "masculino", price: 29.00, desc: "Camisa elegante em linho natural. Fresca e confortável.",                        emoji: "👔", available: true },
+  { id: 3,  name: "Calças Chino Bege",          category: "roupa",    subcategory: "masculino", price: 34.00, desc: "Calças chino clássicas, versáteis para o dia-a-dia.",                            emoji: "👖", available: true },
+  { id: 4,  name: "Vestido Floral Verão",       category: "roupa",    subcategory: "feminino",  price: 38.00, desc: "Vestido leve com estampado floral, perfeito para o calor de São Tomé.",          emoji: "👗", available: true },
+  { id: 5,  name: "Blusa de Alças Branca",      category: "roupa",    subcategory: "feminino",  price: 18.00, desc: "Blusa leve e elegante, ideal para o dia-a-dia.",                                 emoji: "👚", available: true },
+  { id: 6,  name: "Conjunto Criança Verão",     category: "roupa",    subcategory: "crianca",   price: 22.00, desc: "Conjunto de camiseta e calção para criança. Confortável e colorido.",            emoji: "🧒", available: true },
+  { id: 7,  name: "Sapatilhas Brancas Classic", category: "sapato",   subcategory: "masculino", price: 48.00, desc: "Sapatilhas brancas atemporais. Conforto garantido para uso diário.",             emoji: "👟", available: true },
+  { id: 8,  name: "Sapatos de Couro Marrom",    category: "sapato",   subcategory: "masculino", price: 65.00, desc: "Sapatos clássicos em couro genuíno. Elegância para qualquer ocasião.",           emoji: "👞", available: true },
+  { id: 9,  name: "Sandálias de Verão",         category: "sapato",   subcategory: "feminino",  price: 32.00, desc: "Sandálias confortáveis e estilosas, ideais para o verão.",                      emoji: "🩴", available: true },
+  { id: 10, name: "Sapatilhas Rosas",           category: "sapato",   subcategory: "feminino",  price: 42.00, desc: "Sapatilhas elegantes em rosa. Leves e confortáveis.",                            emoji: "👠", available: true },
+  { id: 11, name: "Ténis Criança Coloridos",    category: "sapato",   subcategory: "crianca",   price: 28.00, desc: "Ténis leves e resistentes para crianças. Fecho com velcro.",                    emoji: "👟", available: true },
+  { id: 12, name: "Pulseira Dourada Elegante",  category: "pulseira", subcategory: null,        price: 14.00, desc: "Pulseira fina em aço inoxidável banhada a ouro. Resistente e elegante.",         emoji: "📿", available: true },
+  { id: 13, name: "Conjunto 3 Pulseiras",       category: "pulseira", subcategory: null,        price: 20.00, desc: "Conjunto de 3 pulseiras combinadas — ouro, prata e couro.",                     emoji: "💫", available: true },
+  { id: 14, name: "Pulseira Tecida Colorida",   category: "pulseira", subcategory: null,        price: 9.00,  desc: "Pulseira artesanal com padrões coloridos. Feita à mão em Portugal.",             emoji: "🌈", available: true },
 ];
 
 // ---- STATE ----
@@ -261,7 +265,15 @@ function calcSEOScore() {
 }
 
 // ---- PRODUCT MANAGEMENT ----
-const CAT_LABELS = { roupa: "Roupa", sapato: "Sapato", pulseira: "Pulseira" };
+const CAT_LABELS    = { roupa: "Roupa", sapato: "Sapato", pulseira: "Pulseira" };
+const SUBCAT_LABELS = { masculino: "Masculino", feminino: "Feminino", crianca: "Criança" };
+
+function toggleSubcatField() {
+  const cat = document.getElementById("modal-category")?.value;
+  const field = document.getElementById("subcat-field");
+  if (!field) return;
+  field.style.display = (cat === "roupa" || cat === "sapato") ? "block" : "none";
+}
 
 function renderAdminProducts() {
   const list = document.getElementById("admin-product-list");
@@ -282,7 +294,10 @@ function renderAdminProducts() {
             ? `<span class="badge-avail">Disponível</span>`
             : `<span class="badge-unavail">Indisponível</span>`}
         </div>
-        <div class="product-list-meta">${CAT_LABELS[p.category] || p.category} · ${escHtml(p.desc)}</div>
+        <div class="product-list-meta">
+          ${CAT_LABELS[p.category] || p.category}${p.subcategory ? ` › ${SUBCAT_LABELS[p.subcategory] || p.subcategory}` : ""}
+          · ${escHtml(p.desc)}
+        </div>
       </div>
       <div class="product-list-price">€${p.price.toFixed(2).replace(".",",")}</div>
       <div class="product-list-actions">
@@ -314,9 +329,11 @@ function openProductModal(id) {
     setVal("modal-emoji", p.emoji);
     const catEl = document.getElementById("modal-category");
     if (catEl) catEl.value = p.category;
+    toggleSubcatField();
+    const subcatEl = document.getElementById("modal-subcategory");
+    if (subcatEl) subcatEl.value = p.subcategory || "masculino";
     const availEl = document.getElementById("modal-available");
     if (availEl) availEl.value = String(p.available);
-    // Load existing image
     currentImageBase64 = p.image || null;
     setImagePreview(p.image || null);
   } else {
@@ -327,6 +344,9 @@ function openProductModal(id) {
     setVal("modal-emoji", "📦");
     const catEl = document.getElementById("modal-category");
     if (catEl) catEl.value = "roupa";
+    toggleSubcatField();
+    const subcatEl = document.getElementById("modal-subcategory");
+    if (subcatEl) subcatEl.value = "masculino";
     const availEl = document.getElementById("modal-available");
     if (availEl) availEl.value = "true";
     setImagePreview(null);
@@ -390,8 +410,10 @@ function saveProduct() {
   const desc  = getVal("modal-desc").trim();
   const price = parseFloat(getVal("modal-price"));
   const emoji = getVal("modal-emoji").trim() || "📦";
-  const cat   = document.getElementById("modal-category")?.value || "roupa";
-  const avail = document.getElementById("modal-available")?.value === "true";
+  const cat    = document.getElementById("modal-category")?.value || "roupa";
+  const hasSubcat = cat === "roupa" || cat === "sapato";
+  const subcat = hasSubcat ? (document.getElementById("modal-subcategory")?.value || "masculino") : null;
+  const avail  = document.getElementById("modal-available")?.value === "true";
 
   if (!name) { showToast("O nome é obrigatório."); return; }
   if (isNaN(price) || price < 0) { showToast("Preço inválido."); return; }
@@ -399,12 +421,12 @@ function saveProduct() {
   if (editingId) {
     const idx = products.findIndex(p => p.id === editingId);
     if (idx >= 0) {
-      products[idx] = { ...products[idx], name, desc, price, emoji, category: cat, available: avail, image: currentImageBase64 || products[idx].image || null };
+      products[idx] = { ...products[idx], name, desc, price, emoji, category: cat, subcategory: subcat, available: avail, image: currentImageBase64 || products[idx].image || null };
     }
     showToast(`"${name}" actualizado.`);
   } else {
     const newId = products.length ? Math.max(...products.map(p => p.id)) + 1 : 1;
-    products.push({ id: newId, name, desc, price, emoji, category: cat, available: avail, image: currentImageBase64 || null });
+    products.push({ id: newId, name, desc, price, emoji, category: cat, subcategory: subcat, available: avail, image: currentImageBase64 || null });
     showToast(`"${name}" adicionado ao catálogo.`);
   }
 
