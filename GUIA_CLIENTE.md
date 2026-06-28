@@ -9,8 +9,8 @@
 
 | | |
 |---|---|
-| **Site da loja** (partilhar com clientes) | https://so-vendas.netlify.app |
-| **Painel de gestão** (só para si) | https://so-vendas.netlify.app/admin.html |
+| **Site da loja** (partilhar com clientes) | https://sovendas.netlify.app |
+| **Painel de gestão** (só para si) | https://sovendas.netlify.app/admin.html |
 | **Senha do painel** | `hamilton1999` |
 | **WhatsApp de pedidos** | +351 924 148 088 |
 
@@ -104,7 +104,7 @@ O produto aparece no catálogo com a etiqueta "Indisponível" mas não pode ser 
 No browser do computador que usa para gerir o site. Se mudar de computador, precisa de re-adicionar os produtos. Para ter os dados na nuvem (acessíveis de qualquer dispositivo), contacte o Wesley.
 
 **Como partilhar o site com os clientes?**  
-Envie o link `https://so-vendas.netlify.app` por WhatsApp, Instagram, Facebook ou coloque-o na bio do Instagram.
+Envie o link `https://sovendas.netlify.app` por WhatsApp, Instagram, Facebook ou coloque-o na bio do Instagram.
 
 **Posso ter um domínio próprio (ex: sovendas.st)?**  
 Sim. O registo custa ~€10–15/ano. Contacte o Wesley para configurar.
