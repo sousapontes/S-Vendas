@@ -148,9 +148,11 @@
   <p>Tudo o que precisa de saber para gerir a sua loja Só Vendas</p>
   <div class="hero-pills">
     <span class="pill">Painel de Gestão</span>
-    <span class="pill">Produtos</span>
-    <span class="pill">Encomendas</span>
+    <span class="pill">Produtos & Categorias</span>
+    <span class="pill">Pesquisa & Filtros</span>
+    <span class="pill">Encomendas WhatsApp</span>
     <span class="pill">SEO</span>
+    <span class="pill">Mobile & Computador</span>
   </div>
 </div>
 
@@ -164,12 +166,12 @@
   <!-- Credenciais -->
   <div class="credentials">
     <div class="cred-item">
-      <div class="cred-label">Site da Loja</div>
-      <div class="cred-value"><a href="index.html">Abrir Loja</a></div>
+      <div class="cred-label">Site da Loja (link a partilhar)</div>
+      <div class="cred-value"><a href="index.html">so-vendas.netlify.app</a></div>
     </div>
     <div class="cred-item">
       <div class="cred-label">Painel de Gestão</div>
-      <div class="cred-value"><a href="admin.html">Abrir Painel</a></div>
+      <div class="cred-value"><a href="admin.html">so-vendas.netlify.app/admin.html</a></div>
     </div>
     <div class="cred-item">
       <div class="cred-label">Senha do Painel</div>
@@ -191,36 +193,43 @@
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-body">
-          <strong>Entram no site e navegam pelo catálogo</strong>
-          <p>Vêem os produtos por categoria: Roupas, Sapatos ou Pulseiras.</p>
+          <strong>Entram no site (telemóvel ou computador)</strong>
+          <p>O site funciona perfeitamente em qualquer dispositivo. No telemóvel, o menu abre com o botão <code>☰</code> no canto superior direito.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-body">
-          <strong>Clicam "+ Adicionar" nos produtos que querem</strong>
-          <p>Podem adicionar vários produtos e escolher quantidades no carrinho.</p>
+          <strong>Procuram o produto pela barra de pesquisa ou pelos filtros</strong>
+          <p>Podem escrever o nome do produto na barra de pesquisa, ou filtrar por categoria — <strong>Roupas</strong>, <strong>Sapatos</strong> ou <strong>Pulseiras</strong> — e depois por <strong>Masculino</strong>, <strong>Feminino</strong> ou <strong>Criança</strong>.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-body">
-          <strong>Abrem o carrinho e confirmam o pedido</strong>
-          <p>Vêem o total e podem ajustar quantidades ou remover artigos.</p>
+          <strong>Clicam "+ Adicionar" nos produtos que querem</strong>
+          <p>Podem adicionar vários produtos de categorias diferentes. O botão muda para "✓ Adicionado" quando o produto está no carrinho.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">4</div>
         <div class="step-body">
-          <strong>Clicam "Enviar Pedido via WhatsApp"</strong>
-          <p>O WhatsApp abre automaticamente com a mensagem já preenchida — lista de produtos e total.</p>
+          <strong>Abrem o carrinho (ícone no canto superior direito)</strong>
+          <p>Vêem a lista completa com preços, ajustam quantidades ou removem artigos, e vêem o total.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">5</div>
         <div class="step-body">
+          <strong>Clicam "Enviar Pedido via WhatsApp"</strong>
+          <p>O WhatsApp abre automaticamente com a mensagem já preenchida — lista de produtos, quantidades e total. O cliente só precisa de carregar "Enviar".</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body">
           <strong>Recebe o pedido no WhatsApp e combina a entrega</strong>
-          <p>Confirma disponibilidade, combina pagamento e envio para São Tomé.</p>
+          <p>Confirma disponibilidade, combina pagamento e envio para São Tomé e Príncipe.</p>
         </div>
       </div>
     </div>
@@ -250,8 +259,10 @@
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-body">
-          <strong>Preencher: Nome, Categoria, Preço e Descrição</strong>
-          <p>Categorias disponíveis: Roupa, Sapato, Pulseira.</p>
+          <strong>Preencher: Nome, Categoria, Subcategoria, Preço e Descrição</strong>
+          <p><strong>Categoria:</strong> Roupa, Sapato ou Pulseira.<br/>
+          <strong>Subcategoria</strong> (para Roupas e Sapatos): <code>Masculino</code>, <code>Feminino</code> ou <code>Criança</code>.<br/>
+          Isto permite aos clientes filtrar por género no catálogo.</p>
         </div>
       </div>
       <div class="step">
@@ -354,6 +365,20 @@
     <div class="faq">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
+          O site funciona bem no telemóvel?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">Sim, foi desenhado especificamente para isso. No telemóvel os produtos aparecem em 2 colunas, os filtros deslizam horizontalmente com o dedo, e o menu de navegação abre com o botão ☰. Os clientes podem encomendar direto do telemóvel sem dificuldade.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          O que são as subcategorias (Masculino, Feminino, Criança)?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">Quando adiciona um produto de Roupa ou Sapato, pode definir se é Masculino, Feminino ou para Criança. Isto permite que os clientes filtrem o catálogo por género — por exemplo, clicar em "Roupas" e depois em "Feminino" para ver só as roupas femininas. As Pulseiras não têm subcategoria pois são unissex.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
           Os produtos ficam guardados se fechar o browser?
           <span class="faq-arrow">▾</span>
         </div>
@@ -364,7 +389,7 @@
           Como partilhar o link do site com os clientes?
           <span class="faq-arrow">▾</span>
         </div>
-        <div class="faq-a">Envie o link do site por WhatsApp, Instagram ou Facebook. Pode também colocar o link na bio do Instagram ou numa publicação.</div>
+        <div class="faq-a">Envie o link so-vendas.netlify.app por WhatsApp, Instagram ou Facebook. Pode colocar o link na bio do Instagram ou numa publicação. Quando alguém partilha o link no WhatsApp, aparece automaticamente uma pré-visualização com o título e descrição do site.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
@@ -378,14 +403,14 @@
           Como alterar a senha do painel de gestão?
           <span class="faq-arrow">▾</span>
         </div>
-        <div class="faq-a">Painel de Gestão → menu "Loja" → secção "Segurança" → escreve a nova senha → confirma → clica "Alterar Senha".</div>
+        <div class="faq-a">Painel de Gestão → menu "Loja" → secção "Segurança" → escreve a nova senha → confirma → clica "Alterar Senha". Guarde a nova senha num lugar seguro.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          O site funciona no telemóvel?
+          Como marcar um produto como indisponível sem o apagar?
           <span class="faq-arrow">▾</span>
         </div>
-        <div class="faq-a">Sim. O site foi desenhado para funcionar em telemóveis, tablets e computadores.</div>
+        <div class="faq-a">Painel → Produtos → Editar → campo "Disponível" → seleccionar "Não — Indisponível" → Guardar. O produto continua visível no catálogo com a etiqueta "Indisponível" mas os clientes não conseguem adicioná-lo ao carrinho.</div>
       </div>
     </div>
   </div>
