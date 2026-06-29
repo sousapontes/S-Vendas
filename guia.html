@@ -118,9 +118,55 @@
     .guide-footer p { color: rgba(255,255,255,.5); font-size: .82rem; }
     .guide-footer strong { color: var(--gold-light); }
 
+    /* Hamburger */
+    .guia-hamburger {
+      display: none; flex-direction: column; justify-content: center; gap: 5px;
+      width: 40px; height: 40px; border-radius: 8px; flex-shrink: 0;
+      background: rgba(255,255,255,.1); padding: 9px; border: none; cursor: pointer;
+      transition: background .2s;
+    }
+    .guia-hamburger:hover { background: rgba(255,255,255,.2); }
+    .guia-hamburger span { display: block; width: 100%; height: 2px; background: #fff; border-radius: 2px; transition: all .3s; }
+    .guia-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .guia-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .guia-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav overlay */
+    .guia-nav-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.5);
+      z-index: 150; opacity: 0; pointer-events: none; transition: opacity .3s;
+    }
+    .guia-nav-overlay.open { opacity: 1; pointer-events: all; }
+
+    /* Mobile nav drawer */
+    .guia-mobile-nav {
+      position: fixed; top: 0; left: 0; bottom: 0; width: 280px;
+      background: var(--navy); z-index: 160;
+      transform: translateX(-100%); transition: transform .3s ease;
+      padding: 24px; display: flex; flex-direction: column; gap: 32px;
+      box-shadow: 4px 0 24px rgba(0,0,0,.25);
+    }
+    .guia-mobile-nav.open { transform: translateX(0); }
+    .guia-mobile-nav-header { display: flex; justify-content: space-between; align-items: center; }
+    .guia-mobile-nav-close {
+      width: 36px; height: 36px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.7); background: rgba(255,255,255,.08);
+      transition: background .2s; border: none; cursor: pointer; font-size: 1.1rem;
+    }
+    .guia-mobile-nav-close:hover { background: rgba(255,255,255,.15); color: #fff; }
+    .guia-mobile-nav nav { display: flex; flex-direction: column; }
+    .guia-mobile-nav nav a {
+      color: rgba(255,255,255,.8); font-size: 1rem; font-weight: 500;
+      padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.08);
+      display: block; text-decoration: none; transition: color .2s;
+    }
+    .guia-mobile-nav nav a:hover { color: #fff; }
+
     @media (max-width: 600px) {
       .credentials { grid-template-columns: 1fr; }
       .top-bar-links { display: none; }
+      .guia-hamburger { display: flex; }
     }
     @media print {
       .top-bar-links, .print-btn, .guide-footer { display: none; }
@@ -133,6 +179,11 @@
 <body>
 
 <div class="top-bar">
+  <button class="guia-hamburger" id="guia-hamburger" onclick="toggleGuiaNav()" aria-label="Abrir menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
   <a href="index.html" class="logo">
     <span class="logo-mark">S</span>
     <span>ó <strong>Vendas</strong></span>
@@ -142,6 +193,21 @@
     <a href="admin.html">Painel Admin</a>
   </div>
 </div>
+
+<div class="guia-nav-overlay" id="guia-nav-overlay" onclick="closeGuiaNav()"></div>
+<aside class="guia-mobile-nav" id="guia-mobile-nav" role="dialog" aria-label="Menu de navegação">
+  <div class="guia-mobile-nav-header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">S</span>
+      <span>ó <strong>Vendas</strong></span>
+    </a>
+    <button class="guia-mobile-nav-close" onclick="closeGuiaNav()" aria-label="Fechar menu">✕</button>
+  </div>
+  <nav>
+    <a href="index.html" onclick="closeGuiaNav()">Ver Loja</a>
+    <a href="admin.html" onclick="closeGuiaNav()">Painel Admin</a>
+  </nav>
+</aside>
 
 <div class="guide-hero">
   <h1>Guia de Utilização</h1>
@@ -442,6 +508,28 @@
   function toggleFaq(el) {
     const item = el.closest('.faq-item');
     item.classList.toggle('open');
+  }
+  function toggleGuiaNav() {
+    const nav = document.getElementById('guia-mobile-nav');
+    const overlay = document.getElementById('guia-nav-overlay');
+    const btn = document.getElementById('guia-hamburger');
+    if (nav.classList.contains('open')) {
+      nav.classList.remove('open');
+      overlay.classList.remove('open');
+      btn.classList.remove('open');
+      document.body.style.overflow = '';
+    } else {
+      nav.classList.add('open');
+      overlay.classList.add('open');
+      btn.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  function closeGuiaNav() {
+    document.getElementById('guia-mobile-nav')?.classList.remove('open');
+    document.getElementById('guia-nav-overlay')?.classList.remove('open');
+    document.getElementById('guia-hamburger')?.classList.remove('open');
+    document.body.style.overflow = '';
   }
 </script>
 </body>

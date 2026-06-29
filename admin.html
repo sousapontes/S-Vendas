@@ -36,8 +36,21 @@
 <!-- ===== ADMIN PANEL ===== -->
 <div id="admin-panel" class="admin-panel" style="display:none;">
 
+  <!-- Mobile topbar (only visible on mobile) -->
+  <div class="admin-topbar">
+    <button class="admin-hamburger" id="admin-hamburger" onclick="toggleAdminSidebar()" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="topbar-logo">
+      <span class="logo-mark">S</span>
+      <span>ó <strong>Vendas</strong></span>
+    </div>
+  </div>
+
   <!-- Sidebar -->
-  <aside class="sidebar">
+  <aside class="sidebar" id="admin-sidebar">
     <div class="sidebar-logo">
       <span class="logo-mark">S</span>
       <span class="logo-text">ó <strong>Vendas</strong></span>
@@ -377,9 +390,42 @@
   </div>
 </div>
 
+<!-- Sidebar overlay (mobile) -->
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="closeAdminSidebar()"></div>
+
 <!-- Toast -->
 <div class="toast" id="admin-toast"></div>
 
 <script src="admin.js"></script>
+<script>
+function toggleAdminSidebar() {
+  const sidebar = document.getElementById('admin-sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  const btn = document.getElementById('admin-hamburger');
+  const isOpen = sidebar.classList.contains('open');
+  if (isOpen) {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+    btn.classList.remove('open');
+    document.body.style.overflow = '';
+  } else {
+    sidebar.classList.add('open');
+    overlay.classList.add('open');
+    btn.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeAdminSidebar() {
+  document.getElementById('admin-sidebar')?.classList.remove('open');
+  document.getElementById('sidebar-overlay')?.classList.remove('open');
+  document.getElementById('admin-hamburger')?.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.nav-item') && window.innerWidth <= 768) {
+    closeAdminSidebar();
+  }
+});
+</script>
 </body>
 </html>
